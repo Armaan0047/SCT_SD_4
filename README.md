@@ -112,3 +112,12 @@ node tests/sort_sanity_check.js
 ## License
 
 Released under the [MIT License](LICENSE).
+
+## Internship Information
+
+Organization: SkillCraft Technology
+
+Track: Software Development Internship
+
+Task: SCT_SD_4 – Product Data Scraper
+
