@@ -5,6 +5,10 @@ rating) from a single product listing page, shows the results in a table, and
 lets you download them as a CSV file. Built as SkillCraft Technology Software
 Development Task 4.
 
+## Live Demo
+
+https://your-app.onrender.com
+
 ## Features
 
 - Scrape product **name**, **price**, and **rating** from a listing page
@@ -14,6 +18,17 @@ Development Task 4.
 - **Export to CSV** using Pandas
 - **Dark mode** toggle that persists across reloads
 - Friendly status messages for empty/invalid URLs, network errors, and timeouts
+
+## Screenshots
+
+### Light Mode
+
+[](image.png)
+
+### Dark Mode
+
+[](image1.png)
+
 
 ## Tech Stack
 
