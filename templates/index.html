@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Data Scraper</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header with title and dark mode toggle (Req 1.1, 14.1) -->
+    <header class="app-header">
+      <h1>Product Data Scraper</h1>
+      <button id="darkModeToggle" type="button" class="btn">🌙 Dark</button>
+    </header>
+
+    <!-- URL input + Scrape button (Req 1.1) -->
+    <section class="card url-section">
+      <label for="urlInput" class="field-label">Product listing URL</label>
+      <input
+        id="urlInput"
+        type="text"
+        class="text-input"
+        placeholder="Paste a product listing URL, e.g. https://books.toscrape.com/"
+        autocomplete="off">
+      <button id="scrapeButton" type="button" class="btn btn-primary">Scrape</button>
+    </section>
+
+    <!-- Status message + count + timestamp (Req 6.4, 7.1, 8.1, 9.1) -->
+    <section class="card status-section">
+      <p id="statusMessage" class="status-message" role="status" aria-live="polite"></p>
+      <div class="meta-row">
+        <span id="countDisplay" class="meta hidden">Total products: 0</span>
+        <span id="timestampDisplay" class="meta hidden">Scraped at: —</span>
+      </div>
+    </section>
+
+    <!-- Search + sort controls (Req 11.1, 12.1, 13.1) -->
+    <section class="card controls" id="controls">
+      <input
+        id="searchInput"
+        type="text"
+        class="text-input"
+        maxlength="100"
+        placeholder="Search by name..."
+        disabled>
+      <div class="sort-controls">
+        <label for="sortSelect" class="field-label">Sort:</label>
+        <select id="sortSelect" class="select-input" disabled>
+          <option value="">None</option>
+          <option value="price-asc">Price: low to high</option>
+          <option value="price-desc">Price: high to low</option>
+          <option value="rating-asc">Rating: low to high</option>
+          <option value="rating-desc">Rating: high to low</option>
+        </select>
+      </div>
+    </section>
+
+    <!-- Results table (Req 6.1, 6.2) -->
+    <section class="card table-section">
+      <div class="table-wrap">
+        <table id="resultsTable" class="results-table hidden">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Rating</th>
+            </tr>
+          </thead>
+          <tbody id="resultsBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Export CSV button (Req 10.1) -->
+    <section class="card export-section">
+      <button id="exportButton" type="button" class="btn" disabled>Export CSV</button>
+    </section>
+
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
